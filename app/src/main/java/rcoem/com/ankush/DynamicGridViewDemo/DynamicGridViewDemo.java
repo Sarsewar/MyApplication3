@@ -19,32 +19,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-/*
-Version:    0.1.0
-Date:       November, 2013
-License:	GPL v2
-Description: Gridview complex sample for Android
-****************************************************************************
-Copyright (C) 2013 Radu Motisan  <radu.motisan@gmail.com>
 
-http://www.pocketmagic.net
-
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 2 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program; if not, write to the Free Software
-Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-****************************************************************************
-
-*/
 
 
 public class DynamicGridViewDemo extends Activity implements   View.OnClickListener,
@@ -185,21 +160,21 @@ public class DynamicGridViewDemo extends Activity implements   View.OnClickListe
 		midParams.addRule(RelativeLayout.BELOW,ibMenu.getId());
 		global_panel.addView(gv,midParams );
 		
-		int imgs[] = new int[]{ R.drawable.pic1,R.drawable.pic2,R.drawable.pic3,
-				R.drawable.pic4,R.drawable.pic5,R.drawable.pic6, R.drawable.pic7,R.drawable.pic8,
-				R.drawable.pic9};
-		String texts[] = new String[]{"FS1000A", "BB Z10", "NaI Crystal","Android", 
-				"CDV", "uRADMonitor", "Virtual", "Robot", "Meda"}; 
+		int imgs[] = new int[]{ R.drawable.pics,R.drawable.pics,R.drawable.pics,
+				R.drawable.pics,R.drawable.pics,R.drawable.pics, R.drawable.pics,R.drawable.pics,
+				R.drawable.pics};
+		String texts[] = new String[]{"", "", "","",
+				"", "", "", "", ""};
 		
 		//2. setup gridview data
 		itemList = new ArrayList<DynGridViewItemData>();
 
-		for (int i=0;i<50;i++)
+		for (int i=0;i<100;i++)
 		{
 			DynGridViewItemData item = new DynGridViewItemData( 
 					texts[i%9], // item string name
-					250, 250, 0, // sizes: item w, item h, item padding
-					R.drawable.item2, // item background image
+					250,100, 0, // sizes: item w, item h, item padding
+					R.drawable.itemback, // item background image
 					R.drawable.favon, 
 					R.drawable.favoff, 
 					true, // favorite state, if favs are enabled
@@ -219,7 +194,7 @@ public class DynamicGridViewDemo extends Activity implements   View.OnClickListe
 		//4. add adapter to gridview
 		gv.setAdapter(m_gridviewAdapter);   
 		//gv.setColumnWidth(300);
-		gv.setNumColumns(4);
+		gv.setNumColumns(10);
 		gv.setSelection(2);
 		gv.setDynGridViewListener((DynGridView.DynGridViewListener) this);
 
@@ -266,16 +241,30 @@ public class DynamicGridViewDemo extends Activity implements   View.OnClickListe
 	{
 		String text = "Click on:"+id+ " " +
 				((DynGridViewItemData)m_gridviewAdapter.getItem(position)).getLabel();
+		/*
+		* Ankush:
+		* Add Dialog here to change the image.
+		*
+		* */
+
 		Toast.makeText(this, text, Toast.LENGTH_SHORT).show();		
 	}
 
-	public void onItemFavClick(View v, int position, int id) {
+	public void onItemFavClick(View v, int position, int id)
+	{
 		itemList.get(position).setFavoriteState(!itemList.get(position).getFavoriteState());
 		m_gridviewAdapter.notifyDataSetChanged();
 		gv.invalidateViews();
 		
 		String text = "Item:"+position+ " fav state:" +
 				((DynGridViewItemData)m_gridviewAdapter.getItem(position)).getFavoriteState();
+
+	/**
+	 *
+	 *
+	 * */
+
+
 		Toast.makeText(this, text, Toast.LENGTH_SHORT).show();		
 	}
 

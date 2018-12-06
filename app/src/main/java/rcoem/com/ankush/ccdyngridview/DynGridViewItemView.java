@@ -13,21 +13,20 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-/************************************************
- * Project: DynGridView sample
- * License: This code is Released under GPL v2 , (C) Radu Motisan, 2013
- * File: DynGridViewItemView.java 
- * Description: dynamic gridview item view constructor
- * 
- * Author: Radu Motisan
- * Email: radu.motisan@gmail.com
- ************************************************/
-
-
+import rcoem.com.ankush.DynamicGridViewDemo.R;
 class DynGridViewItemView extends RelativeLayout implements DragSource, DropTarget {       
 	public static final int FAVICONID = -5;
 	DynGridViewItemData mitem;
 	ImageView ivFavorite;
+	/**
+	 *
+	 * Phele input leke number of grid findout karna hai.
+	 * Then dynamically create gridview with imageView and
+	 * Context Menu option le ke image change karna hai
+	 * and give the screenshot option to save to gallery.
+	 *
+	 *
+	 * */
 	
 	public ImageView getFavoriteView() {
 		return ivFavorite;
@@ -84,7 +83,9 @@ class DynGridViewItemView extends RelativeLayout implements DragSource, DropTarg
 				addView(ivFavorite, lp_ivFav);
 			} else {
 				ivFavorite = new ImageView(context);
-				ivFavorite.setImageResource(item.getFavoriteOffRes());
+				item.setFavoriteOffRes(R.drawable.pic2);
+				//DynGridViewItemData it=itemList.get()
+				ivFavorite.setImageResource(R.drawable.pic2);//item.getFavoriteOffRes());
 				RelativeLayout.LayoutParams lp_ivFav = new RelativeLayout.LayoutParams(
 						LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 				lp_ivFav.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);

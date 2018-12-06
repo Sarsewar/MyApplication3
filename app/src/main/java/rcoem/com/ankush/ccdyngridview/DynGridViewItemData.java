@@ -2,15 +2,6 @@ package rcoem.com.ankush.ccdyngridview;
 
 import android.graphics.Bitmap;
 
-/************************************************
- * Project: DynGridView sample
- * License: This code is Released under GPL v2 , (C) Radu Motisan, 2013
- * File: DynGridViewItemData.java 
- * Description: dynamic gridview item data structures
- * 
- * Author: Radu Motisan
- * Email: radu.motisan@gmail.com
- ************************************************/
 
 public class DynGridViewItemData {
 		   

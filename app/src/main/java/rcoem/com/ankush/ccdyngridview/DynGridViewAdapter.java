@@ -67,7 +67,8 @@ public class DynGridViewAdapter extends BaseAdapter {
         View v = new DynGridViewItemView(this.context, itemData );
         // set listeners to trigger the drag events
         v.setOnClickListener((OnClickListener) parent);
-        if (((DynGridViewItemView) v).getFavoriteView() != null) {
+        if (((DynGridViewItemView) v).getFavoriteView() != null)
+        {
         	((DynGridViewItemView) v).getFavoriteView().setId(DynGridViewItemView.FAVICONID);
         	((DynGridViewItemView) v).getFavoriteView().setOnClickListener((OnClickListener) parent);
         }

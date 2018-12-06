@@ -334,14 +334,15 @@ public class DynGridView extends GridView
 		if (target.getId() != -1) {
 			int positionOne = getPositionForView(source), positionTwo = getPositionForView(target);
 			// inform listener
-	        if (mListener!=null) mListener.onItemsChanged(positionOne, positionTwo);
+	        if (mListener!=null)
+	        	mListener.onItemsChanged(positionOne, positionTwo);
 			((DynGridViewAdapter) getAdapter()).swapItems(positionOne, positionTwo);
 		}
 		else {
 			int position = getPositionForView(source);
 			// inform listener
 	        if (mListener!=null) mListener.onItemDeleted(position, source.getId());
-			((DynGridViewAdapter) getAdapter()).remove(position);	
+			((DynGridViewAdapter) getAdapter()).remove(position);
 		} 
 	}
 	
